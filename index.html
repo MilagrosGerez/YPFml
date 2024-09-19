@@ -26,20 +26,67 @@
         </div>
 
         <ul class="">
-            <li class="btn btn-light"><a href="./index.html">Home</a></li>
-            <li class="btn btn-light"><a href="http://45.164.228.221:9090/#/dashboard-indicators">Centro</a></li>
-            <li class="btn btn-light"><a href="http://45.164.228.222:9090/#/dashboard-indicators">Mitre</a></li>
+           
+            <li class="btn btn-light"><a id="dynamic-link-1" href="#">Centro</a></li>
+            <li class="btn btn-light"><a id="dynamic-link-2" href="#">Mitre</a></li>
         </ul>
+
+     
+
     </nav>
 
     </header>
     <main>
-<p>Estamos trabajando en ello.</p>
+        <h1>Obtener IP  Pública</h1>
+        <p id="public-ip">IP Pública: Cargando...</p>
+
+        <script>
+            async function getPublicIP() {
+                try {
+                    const response = await fetch('https://api.ipify.org?format=json');
+                    const data = await response.json();
+                    const publicIP = data.ip;
+                    document.getElementById('public-ip').textContent = `IP Pública: ${publicIP}`;
+
+                   
+                    // Variables para los enlaces dinámicos
+                    let dynamicUrl1 = '';
+                    let dynamicUrl2 = '';
+
+                    // Compara la IP pública y ajusta el primer enlace dinámico
+                    if (publicIP === '45.164.228.221') {
+                        dynamicUrl1 = 'http://192.168.0.36/#/dashboard-indicators';  // Enlace si la IP es 45.164.228.221
+                    } else {
+                        dynamicUrl1 = 'http://45.164.228.221:9090/#/dashboard-indicators';  // Enlace si la IP es diferente
+                    }
+
+                    // Compara la IP pública y ajusta el segundo enlace dinámico
+                    if (publicIP === '45.164.228.222') {
+                        dynamicUrl2 = 'http://192.168.0.37/#/dashboard-indicators';  // Enlace si la IP es 45.164.228.222
+                    } else {
+                        dynamicUrl2 = 'http://45.164.228.222:9090/#/dashboard-indicators';  // Enlace si la IP es diferente
+                    }
+
+                    // Asignar el primer enlace dinámico
+                    const dynamicLink1 = document.getElementById("dynamic-link-1");
+                    dynamicLink1.href = dynamicUrl1;
+                    dynamicLink1.textContent = `Centro`;
+
+                    // Asignar el segundo enlace dinámico
+                    const dynamicLink2 = document.getElementById("dynamic-link-2");
+                    dynamicLink2.href = dynamicUrl2;
+                    dynamicLink2.textContent = `Mitre`;
+
+                } catch (error) {
+                    document.getElementById('public-ip').textContent = `Error al obtener la IP pública: ${error}`;
+                }
+            }
+
+            // Llamar a la función al cargar la página
+            getPublicIP();
+
+        </script>
     </main>
-    <footer>
-        <p>
-            © Derechos Reservados.
-        </p>
-    </footer>
+
 </body>
 </html>
