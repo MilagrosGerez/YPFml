@@ -62,7 +62,7 @@
 
                     // Compara la IP pública y ajusta el segundo enlace dinámico
                     if (publicIP === '45.164.228.222') {
-                        dynamicUrl2 = 'http://192.168.0.37/#/dashboard-indicators';  // Enlace si la IP es 45.164.228.222
+                        dynamicUrl2 = 'http://192.168.0.220/#/dashboard-indicators';  // Enlace si la IP es 45.164.228.222
                     } else {
                         dynamicUrl2 = 'http://45.164.228.222:9090/#/dashboard-indicators';  // Enlace si la IP es diferente
                     }
@@ -70,12 +70,12 @@
                     // Asignar el primer enlace dinámico
                     const dynamicLink1 = document.getElementById("dynamic-link-1");
                     dynamicLink1.href = dynamicUrl1;
-                    dynamicLink1.textContent = `Centro`;
+                    dynamicLink1.textContent = `CENTRO`;
 
                     // Asignar el segundo enlace dinámico
                     const dynamicLink2 = document.getElementById("dynamic-link-2");
                     dynamicLink2.href = dynamicUrl2;
-                    dynamicLink2.textContent = `Mitre`;
+                    dynamicLink2.textContent = `MITRE`;
 
                 } catch (error) {
                     document.getElementById('public-ip').textContent = `Error al obtener la IP pública: ${error}`;
