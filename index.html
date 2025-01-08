@@ -61,12 +61,14 @@
                     }
 
                     // Compara la IP pública y ajusta el segundo enlace dinámico
-                    if (publicIP === '45.164.228.222') {
+                    if (publicIP === '186.136.30.166') {
                         dynamicUrl2 = 'http://192.168.0.220/#/dashboard-indicators';  // Enlace si la IP es 45.164.228.222
                     } else {
-                        dynamicUrl2 = 'http://45.164.228.222:9090/#/dashboard-indicators';  // Enlace si la IP es diferente
+                        dynamicUrl2 = 'http:186.136.30.166//:9090/#/dashboard-indicators';  // Enlace si la IP es diferente
                     }
 
+
+                    //45.164.228.222 ip antigua 
                     // Asignar el primer enlace dinámico
                     const dynamicLink1 = document.getElementById("dynamic-link-1");
                     dynamicLink1.href = dynamicUrl1;
