@@ -38,7 +38,7 @@
     </header>
     <main>
        
-        <p id="public-ip">IP Pública: Cargando...</p>
+        <!--<p id="public-ip">IP Pública: Cargando...</p> -->
 
         <script>
             async function getPublicIP() {
@@ -46,7 +46,7 @@
                     const response = await fetch('https://api.ipify.org?format=json');
                     const data = await response.json();
                     const publicIP = data.ip;
-                    document.getElementById('public-ip').textContent = `IP Pública: ${publicIP}`;
+                   // document.getElementById('public-ip').textContent = `IP Pública: ${publicIP}`;
 
                    
                     // Variables para los enlaces dinámicos
@@ -64,7 +64,7 @@
                     if (publicIP === '186.136.30.166') {
                         dynamicUrl2 = 'http://192.168.0.220/#/dashboard-indicators';  // Enlace si la IP es 45.164.228.222
                     } else {
-                        dynamicUrl2 = 'http://186.136.30.166:9090/#/dashboard-indicators';  // Enlace si la IP es diferente
+                        dynamicUrl2 = 'http://190.18.205.37:9090/#/dashboard-indicators';  // Enlace si la IP es diferente
                     }
 
 
